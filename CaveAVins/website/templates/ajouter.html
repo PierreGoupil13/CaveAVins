@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content %}
+<form method="post">
+  <h3 align="center">Ajouter votre bouteille :</h3>
+  <div>
+    <label for="nameBout">Nom</label>
+    <input
+      type="text"
+      class=""
+      id="nameBout"
+      name="nameBout"
+      placeholder="Nom de la bouteille"
+    />
+  </div>
+  <div>
+    <label for="annee">Annee de production</label>
+    <input
+      type="text"
+      class=""
+      id="annee"
+      name="annee"
+      placeholder="Annee de production"
+    />
+  </div>
+  <div>
+    <label for="numCais">Numero de la caisse</label>
+    <input
+      type="text"
+      class=""
+      id="numCais"
+      name="numCais"
+      placeholder="Numero de la caisse"
+    />
+  </div>
+
+  <button type="submit">Ajout</button>
+</form>
+{% endblock %}
