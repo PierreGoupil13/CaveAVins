@@ -17,11 +17,11 @@ def create_app():
     app.register_blueprint(views, urlprefix='/')
 
     # # Initialiser la db
-    # app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
-    # db.init_app(app)
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    db.init_app(app)
 
-    # with app.app_context():
-    #     db.create_all()
-    #     print('Created')
+    with app.app_context():
+        db.create_all()
+        print('Created')
 
     return app
