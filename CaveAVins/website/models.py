@@ -10,6 +10,7 @@ class Bouteilles(db.Model):
     commentaire_vin = db.Column(db.String(1000))
     note_vin = db.Column(db.Integer)
     type_vin = db.Column(db.String(20))
+    producteur_vin = db.Column(db.String(50))
     date = db.Column(db.DateTime(timezone=True), default = func.now())
 
 

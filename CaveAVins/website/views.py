@@ -8,7 +8,6 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=['POST', 'GET'])
 def home():
     vin = Bouteilles.query.filter_by(id = 1).first()
-    print(vin.nom_vin)
     return render_template("home.html", vin=vin)
 
 @views.route('/ajouter', methods=['POST', 'GET'])

@@ -1,37 +1,104 @@
-{% extends "base.html" %} {% block content %}
-<form method="post">
+{% extends "base.html" %} 
+{% block content %}
+<form method="post" class="row g-3">
   <h3 align="center">Ajouter votre bouteille :</h3>
-  <div>
-    <label for="nameBout">Nom</label>
-    <input
-      type="text"
-      class=""
-      id="nameBout"
-      name="nameBout"
-      placeholder="Nom de la bouteille"
-    />
-  </div>
-  <div>
-    <label for="annee">Annee de production</label>
-    <input
-      type="text"
-      class=""
-      id="annee"
-      name="annee"
-      placeholder="Annee de production"
-    />
-  </div>
-  <div>
-    <label for="numCais">Numero de la caisse</label>
-    <input
-      type="text"
-      class=""
-      id="numCais"
-      name="numCais"
-      placeholder="Numero de la caisse"
-    />
+  
+  <div class="row mb-3 align-items-center">
+    <h4> Information sur le vin :</h2>
+    <div class="col-auto">
+      <label for="type" class="form-label">Type de vin</label>
+      <input
+        type="text"
+        class="form-control"
+        id="type"
+        name="type"
+        placeholder="Type de vin"
+      />
+    </div>
+    <div class="col-auto">
+      <label for="nameBout" class="form-label">Nom</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nameBout"
+        name="nameBout"
+        placeholder="Nom de la bouteille"
+      />
+    </div>
+    <div class="col-auto">
+      <label for="annee" class="form-label">Annee de production</label>
+      <input
+        type="text"
+        class="form-control"
+        id="annee"
+        name="annee"
+        placeholder="Annee de production"
+      />
+    </div>
+    <div class="col-auto">
+      <label for="producteur" class="form-label">Producteur</label>
+      <input
+        type="text"
+        class="form-control"
+        id="producteur"
+        name="producteur"
+        placeholder="Producteur"
+      />
+    </div>
   </div>
 
-  <button type="submit">Ajouter</button>
+  <div class="row mb-3 align-items-center">
+    <h4> Information sur la caisse :</h2>
+    <div class="col-auto">
+      <label for="nombTeil" class="form-label">Nombre de bouteilles</label>
+      <input
+        type="number"
+        class="form-control"
+        id="nombTeil"
+        name="nombTeil"
+        placeholder="Nombre de bouteilles"
+      />
+    </div>
+    <div class="col-auto">
+      <label for="numCaisse" class="form-label">Numéro de la caisse</label>
+      <input
+        type="text"
+        class="form-control"
+        id="numCaisse"
+        name="numCaisse"
+        placeholder="Numéro caisse"
+      />
+    </div>
+  </div>
+  
+  <div class="row mb-3 align-items-center">
+    <h4> Information supplémentaires :</h2>
+    <div class="col-auto">
+      <label for="note" class="form-label">Note</label>
+      <input
+        type="number"
+        class="form-control"
+        id="note"
+        name="note"
+        placeholder="Note du vin"
+      />
+    </div>
+    <div class="col-12">
+      <label for="numCaisse" class="form-label">Commentaires</label>
+      <textarea
+        class="form-control"
+        id="numCaisse"
+        name="numCaisse"
+        placeholder="Commentaires sur le vin"
+      >
+      </textarea>
+    </div>
+  </div>
+  
+
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <button type="submit" class="btn btn-outline-primary col-auto">Ajouter</button>
+  </div>
+  
 </form>
 {% endblock %}
