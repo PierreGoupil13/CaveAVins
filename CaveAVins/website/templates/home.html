@@ -1,4 +1,22 @@
-{% extends "base.html" %} {% block content %}
-<a href="/ajouter"> Ajouter </a>
-<span>Vin est : </span>
+{% extends "base.html" %} 
+{% block content %}
+<div class="container text-center">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            {% for vin in cave %}
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">{{vin.nom_vin}}</li>
+                <li class="list-group-item">{{vin.type_vin}}</li>
+                <li class="list-group-item">{{vin.producteur_vin}}</li>
+                <div class="list-group-item">{{vin.num_caisse}}</div>
+                <a href="/single/{{vin.id}}">Clique</a>       
+            </ul>
+            {% endfor %}
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+</div>
 {% endblock %}

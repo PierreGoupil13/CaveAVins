@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+{% block content %}
+<div class="container text-center">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-header">
+                  {{vin.nom_vin}}
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{vin.producteur_vin}}</li>
+                  <li class="list-group-item">{{vin.commentaire_vin}}</li>
+                  <li class="list-group-item">{{vin.note_vin}}</li>
+                </ul>
+              </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
