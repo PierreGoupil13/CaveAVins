@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request, flash, redirect
+
+from website.helpers import check_type
 from .models import Bouteilles
 from . import db
 
@@ -9,6 +11,21 @@ views = Blueprint('views', __name__)
 def home():
     cave = db.session.query(Bouteilles).all()
     return render_template("home.html", cave=cave)
+
+@views.route('/supprimer/<int:id>', methods=['POST','GET'])
+def delete_vin(id):
+    # Recuperer les données de quantité de bouteilles, si = 1 alors supprimer, sinon diminuer de 1.
+    vin = db.session.query(Bouteilles).filter_by(id=id).first()
+    print(vin.nombre)
+    if vin.nombre > 1:
+        vin.nombre -= 1
+        db.session.commit()
+        return redirect(f"/single/{vin.id}")
+    else:
+        db.session.delete(vin)
+        db.session.commit()
+    
+    return redirect("/")
 
 @views.route('/ajouter', methods=['POST', 'GET'])
 def ajouter():
@@ -24,6 +41,8 @@ def ajouter():
         comment = request.form.get('comment')
 
         # Instaurer du controle sur les infos maintenant
+        if check_type(type_vin) != True:
+            flash("Type de vin incorect, si vous n'êtes pas sur, indiquer autres", category='error')
 
 
         new_bouteille = Bouteilles(

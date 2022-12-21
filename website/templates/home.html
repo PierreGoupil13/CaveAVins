@@ -10,7 +10,9 @@
                 <li class="list-group-item">{{vin.type_vin}}</li>
                 <li class="list-group-item">{{vin.producteur_vin}}</li>
                 <div class="list-group-item">{{vin.num_caisse}}</div>
-                <a href="/single/{{vin.id}}">Clique</a>       
+                <div class="list-group-item">{{vin.nombre}}</div>
+                
+                <a class="btn btn-outline-primary" href="/single/{{vin.id}}">Details</a>       
             </ul>
             {% endfor %}
         </div>
