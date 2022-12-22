@@ -4,17 +4,21 @@
     <div class="row">
         <div class="col"></div>
         <div class="col">
+            {% if not(cave) %}
+            <h1>C'est bien vide ici!</h1>
+            {% endif %}
             {% for vin in cave %}
-            <ul class="list-group list-group-horizontal">
+            <ul class="list-group list-group-horizontal-lg">
                 <li class="list-group-item">{{vin.nom_vin}}</li>
                 <li class="list-group-item">{{vin.type_vin}}</li>
                 <li class="list-group-item">{{vin.producteur_vin}}</li>
-                <div class="list-group-item">{{vin.num_caisse}}</div>
-                <div class="list-group-item">{{vin.nombre}}</div>
-                
-                <a class="btn btn-outline-primary" href="/single/{{vin.id}}">Details</a>       
-            </ul>
+                <li class="list-group-item">N°{{vin.num_caisse}}</li>
+                <li class="list-group-item">{{vin.nombre}} Bouteilles</li>
+                <a class="btn btn-outline-primary" href="/single/{{vin.id}}">Details</a>
+            </ul>   
+                       
             {% endfor %}
+            
         </div>
         <div class="col">
 

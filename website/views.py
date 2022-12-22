@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect
 
-from website.helpers import check_type
+from website.helpers import check_type, check_num,nom_not_null
 from .models import Bouteilles
 from . import db
 
@@ -41,8 +41,22 @@ def ajouter():
         comment = request.form.get('comment')
 
         # Instaurer du controle sur les infos maintenant
-        if check_type(type_vin) != True:
-            flash("Type de vin incorect, si vous n'êtes pas sur, indiquer autres", category='error')
+        """ if check_type(type_vin) != True:
+            flash("Type de vin incorect, si vous n'êtes pas sur, indiquer autres", category='error') """
+        if not(check_num(num_bouteille)):
+            flash("Nombre de bouteilles incorrect", category='error')
+            return render_template("ajouter.html")
+        else:
+            num_bouteille = int(num_bouteille)
+        
+        if not(check_type(type_vin)):
+            flash("Type de vin incorect, si vous n'êtes pas sur, indiquer : autres", category='error')
+            return render_template("ajouter.html")
+        if not(nom_not_null(nom_vin)):
+            flash("Nom de vin incorect", category='error')
+            return render_template("ajouter.html")
+
+        # Probleme a gerer a ce niveau y'a rien qui marche et ca provoque des pb
 
 
         new_bouteille = Bouteilles(
