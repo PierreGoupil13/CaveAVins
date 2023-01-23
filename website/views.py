@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash, redirect
 
 from website.helpers import check_type, check_num,nom_not_null
 from .models import Bouteilles
+from .entity import Bottle
 from . import db
 
 # Initialise le Blueprint
@@ -31,14 +32,19 @@ def delete_vin(id):
 def ajouter():
     if request.method == 'POST':
         # Get data from form
-        nom_vin = request.form.get('nameBout')
-        annee_prod = request.form.get('annee')
-        num_caisse = request.form.get('numCaisse')
-        type_vin = request.form.get('type')
-        producteur = request.form.get('producteur')
-        num_bouteille = request.form.get('nombTeil')
-        note_vin = request.form.get('note')
-        comment = request.form.get('comment')
+
+        # Voir comment utiliser un objet pour recuperer les infos
+            # On peut envoyer request.form sous form d'un objet resulat
+        bouteille_nouvelle = Bottle( request.form.get('nameBout'), request.form.get('numCaisse'), request.form.get('nombTeil'), request.form.get('comment'), request.form.get('annee'), request.form.get('type'), request.form.get('producteur'), request.form.get('note')
+        # nom_vin = request.form.get('nameBout')
+        # annee_prod = request.form.get('annee')
+        # num_caisse = request.form.get('numCaisse')
+        # type_vin = request.form.get('type')
+        # producteur = request.form.get('producteur')
+        # num_bouteille = request.form.get('nombTeil')
+        # note_vin = request.form.get('note')
+        # comment = request.form.get('comment')
+        # print(request.form)
 
         # Instaurer du controle sur les infos maintenant
         """ if check_type(type_vin) != True:
